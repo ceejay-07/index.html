@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Style inputs */
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Style the container/contact section */
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+/* Create two columns that float next to eachother */
+.column {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  padding: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+/*background photo
+
+
+</style>
+</head>
+<body>
+
+<img src="header logo.jpg" alt="header logo">
+
+<div class="container">
+
+  <div class="row">
+    <div class="column">
+      <form action="/action_page.php">
+
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Julius Harvey" readonly>
+
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Gonzalo" readonly>
+
+        <label for="bday">Birthday</label>
+        <input type="text" id="bday" name="birthday" placeholder="11/30/2004" readonly> 
+
+	      <label for="Patient Number">Patient Number</label>
+        <input type="text" id="Patient Number" name="Patient Number" placeholder="2022-2-00312" readonly>
+
+        <label for="What type of Patient">What type of Patient</label>
+        <select id="What type of Patient" name="What type of Patient" title="What type of Patient">
+            <option value="filler1"></option>
+            <option value="In patient">In Patient</option>
+            <option value="Out patient">Out patient</option>
+          </select>
+        
+        <label for="Tests to be performed">Tests Required</label><br>
+        <container>
+        <textarea id="Tests to be performed" name="Tests to be performed" placeholder="Test Performed" style="height:170px; width: 80%; float: left"></textarea>
+        <textarea id="Time to be performed" name="Time to be performed" placeholder="Time to be Performed" style="height:170px; width: 20%; float: right"></textarea>
+        </container>
+
+        <label for="What type of Food Consumed">Food Consumed</label>
+        <select id="What type of Food Consumed" name="What type of Food Consumed" title="What type of Food Consumed">
+            <option value="filler2"></option>
+            <option value="FoodPack A">FoodPack A</option>
+            <option value="FoodPack B">FoodPack B</option>
+            <option value="FoodPack C">FoodPack C</option>
+        </select>
+
+        <input type="submit" id="submit" value="Submit">
+      </form>
+
+
+    </div>
+
+    <div class="column">
+	    <img src="sample1.jpg" alt="Photo of the User" width="700" height="350" class="center">    
+    <br><br>
+
+    <center>
+      <table id="testsTable">
+        <tr>
+          <th>Tests Performed</th>
+          <th>Time Performed</th>
+          <th>Status</th>    
+        </tr>
+        <tr>
+          <td>CBC</td>
+          <td>11:00 AM</td>    
+          <td>Completed</td>
+        </tr>
+        <tr>
+          <td>Urinalysis</td>
+          <td>11:45 AM</td>    
+          <td>Completed</td>
+        </tr>
+        <tr>
+          <td>Electrolytes</td>
+          <td>12:30 PM</td>    
+          <td>Completed</td>
+        </tr>
+      </table>
+    </center>
+
+    <br><br>
+
+    <center>
+      <div style="max-height: 120px; overflow-y: auto;">
+      <table id="foodTable">
+        <tr>
+          <th>FoodPack</th>
+          <th>Time Consumed</th>   
+        </tr>
+        <tr>
+          <td>FoodPack A</td>
+          <td>10:30 AM</td>    
+        </tr>
+        <tr>
+          <td>FoodPack B</td>
+          <td>11:00 AM</td>    
+        </tr>
+        <tr>
+          <td>FoodPack C</td>
+          <td>1:00 PM</td>    
+        </tr>
+            
+      </table>
+    </div>
+
+
+    </center>	
+<br><br>
+<center>
+<b>
+	      <label for="Patient Number">PHYSICIAN</label>
+</b>
+</center>
+        <input type="text" id="Patient Number" name="Patient Number" placeholder="CORDERO, Carl Jasmine M., RMT, PhD" readonly>
+</div>
+
+  </div>
+</div>
+
+<script>
+
+
+
+document.getElementById('submit').addEventListener('click', function(e) {
+  
+e.preventDefault();
+
+ var test = document.getElementById('Tests to be performed').value.trim();
+ var testtime = document.getElementById('Time to be performed').value.trim();
+ var food = document.getElementById('What type of Food Consumed').value.trim();
+ if (test == '' && testtime == '' && food == '') {
+    alert('Please enter a test or food before submitting.');
+    return;
+ }
+  
+ var curtime = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'Asia/Manila' });  
+ var curtimehrs = curtime.split(':')[0];
+ var curtimemins = curtime.split(':')[1];
+ var curtimeAPM = curtime.split(':')[1].split(' ')[1];
+ var curtimeval =  (parseInt(curtimehrs * 60)) +  parseInt(curtimemins);
+ if (curtimeAPM.toLowerCase() == 'pm'){ 
+  curtimeval += 720;
+  }
+
+ if (test != '' && testtime != '') {
+    var testtable = document.getElementById('testsTable');
+    var testrow = testtable.insertRow(-1);
+    var testcell1 = testrow.insertCell(0);
+    var testcell2 = testrow.insertCell(1);
+    var testcell3 = testrow.insertCell(2);
+    
+    testcell1.innerHTML = test;
+    testcell2.innerHTML = testtime;
+
+    var testtimehrs = testtime.split(':')[0];
+    var testtimemins = testtime.split(':')[1];
+    var testtimeAPM = testtime.split(':')[1].split(' ')[1];
+    var testtimeval = (parseInt(testtimehrs) * 60) +  parseInt(testtimemins);
+
+    if (testtimeAPM.toLowerCase() == 'pm'){ 
+      testtimeval += 720;
+      }
+ 
+
+    if (curtimeval < testtimeval) {
+      testcell3.innerHTML = 'Incomplete';
+    } else {
+      testcell3.innerHTML = 'Completed';
+    }
+ }
+
+ if (food != '' && food != 'filler2') {
+    var foodsTable = document.getElementById('foodTable');
+    var foodrow = foodsTable.insertRow(-1);
+    var foodcell1 = foodrow.insertCell(0);
+    var foodcell2 = foodrow.insertCell(1);
+  
+    foodcell1.innerHTML = food;
+    foodcell2.innerHTML = curtime;
+ }
+
+ document.getElementById('Tests to be performed').value = "";
+ document.getElementById('Time to be performed').value = "";
+ document.getElementById('What type of Food Consumed').value = "";
+
+});
+
+</script>
+
+</body>
+</html>
